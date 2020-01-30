@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>ClassLink</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="shortcut icon" type="image/x-icon" href="//cdn.classlink.com/production/launchpad/resources/images/favicon.ico" />
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" />	
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
+        <link href="//cdn.classlink.com/production/launchpad/css/clsso.css?t=1580396206401" rel="stylesheet" />
+    </head>
+    <body id="main">
+        <!-- modal for login prompt-->
+        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+                <h3 id="myModalLabel">Invalid application</h3>
+            </div>
+            <div class="modal-body">
+                <div class="media">
+                    <a class="pull-left" href="#"></a>
+                    <div class="media-body"><i class="fa fa-question fa-3x  fa-border pull-left "></i>
+                        <h4 class="media-heading">Something went wrong.</h4>
+                        <p>Sorry, we could not find this application for you. Please contact your administrator.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="pull-left"><img style="margin-right:10px;" src="//d34ayq4ssnlzwx.cloudfront.net/resources/auth/images/logo-lp.png" alt=""><a href="http://www.classlink.com/" target="_blank">ClassLink, Inc.</a></div>
+            </div>
+        </div>
+        <div id="sso-auth-modal" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: block;">
+            <div class="modal-header">
+                <h3 id="myModalLabel">Would you like to save your login?</h3>
+            </div>
+            <div class="modal-body">
+                <div class="media">
+                    <a class="pull-left" href="#"><img class="app-icon" src="//filescdn.classlink.com/resources/icons/default/coolmath.png" data-original="//filescdn.classlink.com/resources/icons/default/coolmath.png" alt=""></a>
+                    <div class="media-body">
+                        <h4 class="media-heading">Coolmath Games</h4>
+                        <p>You can save your login for this application to auto-login on your next visit.</p>
+                    </div>
+                </div>
+                <form method="post" name="app_frm" class="form-horizontal" action="/clsso/171250">
+                    
+                            <input name="form_build_id" type="hidden" value="form-l56zAwaTbYHVbo_6bSmKW__X40ZtmnWqY1M0dc9QpKs" />    
+                       
+                            <input name="form_id" type="hidden" value="user_login" />    
+                       
+                            <div class="control-group">
+                        <label class="control-label" for="inputname">Email</label>
+                        <div class="controls">
+                            <input name="name" type="text" placeholder="Email"  />
+                        </div>
+                    </div>
+                     
+                            <div class="control-group">
+                        <label class="control-label" for="inputpass">Password</label>
+                        <div class="controls">
+                            <input name="pass" type="password" placeholder="Password" autocomplete="new-password" />
+                        </div>
+                    </div>
+                     
+                            <input name="remember_me" type="hidden" value="1" />    
+                       
+                            <input name="op" type="hidden" value="Log In" />    
+                       
+                    <input type="submit" style="display:none;" />
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn skip-sso-auth">Skip</button>
+                <button class="btn btn-primary save-sso-auth">Save</button>
+            </div>
+        </div>
+        <div class="modal-backdrop fade in"></div>
+        <script type="text/javascript" src="//cdn.classlink.com/production/launchpad/resources/jquery-3.4.0.min.js?t=1580396206401"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function(){
+            $('button.save-sso-auth').click(function() {
+                $('form[name="app_frm"] input[type="hidden"]').attr("disabled", true);
+                $('form[name="app_frm"] input[type="submit"]').click();
+            });
+
+            $('button.skip-sso-auth').click(function() {
+                $('form[name="app_frm"]').attr('action', '/clsso/171250?skip=1');
+                $('form[name="app_frm"] input[type="submit"]').click();
+            });
+        });      
+        </script>
+    </body>
+</html>
